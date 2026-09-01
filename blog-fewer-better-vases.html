@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A slow case for buying fewer, better vases — The Accessory Edit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #E7E9E1;
+    --card: #FBF9F4;
+    --ink: #22261F;
+    --ink-soft: #4A4F44;
+    --forest: #3C4A34;
+    --forest-deep: #2C3627;
+    --wine: #6E2E33;
+    --sand: #C9BBA0;
+    --hairline: rgba(34,38,31,0.16);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', serif;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  a{ color: var(--forest); text-decoration: none; }
+
+  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+  .prose-wrap{ max-width: 680px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 640px){ .wrap, .prose-wrap{ padding: 0 20px; } }
+
+  /* ---------- header ---------- */
+  header{
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(231,233,225,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .nav{
+    max-width: 1120px; margin: 0 auto; padding: 20px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  @media (max-width: 640px){ .nav{ padding: 20px; } }
+  .logo{
+    font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; font-style: italic;
+  }
+  .back-link{ font-size: 14px; color: var(--ink-soft); }
+  .back-link:hover{ color: var(--forest); }
+
+  /* ---------- post header ---------- */
+  .post-head{
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .post-meta{
+    display: flex; gap: 14px; align-items: center;
+    font-size: 13.5px; color: var(--wine);
+    margin-bottom: 16px;
+  }
+  .post-meta .dot{ color: var(--sand); }
+  .post-meta .neutral{ color: var(--ink-soft); }
+  .post-head h1{
+    font-size: clamp(32px, 5vw, 46px);
+    line-height: 1.08;
+  }
+  .post-dek{
+    margin-top: 18px;
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  /* decorative hero, css only, echoes homepage weave motif */
+  .post-hero-art{
+    margin: 40px auto 0;
+    max-width: 1120px;
+    padding: 0 32px;
+  }
+  .weave{
+    position: relative;
+    height: 260px;
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    overflow: hidden;
+  }
+  .weave-strip{ position: absolute; left: -10%; right: -10%; height: 30px; background: var(--sand); opacity: 0.5; }
+  .weave-strip.forest{ background: var(--forest); opacity: 0.85; }
+  .weave-strip.wine{ background: var(--wine); opacity: 0.65; }
+
+  /* ---------- disclosure banner ---------- */
+  .disclosure-banner{
+    max-width: 680px;
+    margin: 40px auto 0;
+    padding: 0 32px;
+  }
+  @media (max-width: 640px){ .disclosure-banner{ padding: 0 20px; } }
+  .disclosure-box{
+    background: var(--card);
+    border: 1px solid var(--hairline);
+    border-left: 3px solid var(--wine);
+    padding: 16px 20px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- article body ---------- */
+  article{ padding: 44px 0 20px; }
+  article p{
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin: 0 0 20px;
+  }
+  article h2{
+    font-size: 24px;
+    margin: 44px 0 14px;
+  }
+
+  /* ---------- product blocks ---------- */
+  .pick{
+    border-top: 1px solid var(--hairline);
+    padding: 32px 0;
+  }
+  .pick-eyebrow{
+    font-size: 13px;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .pick h3{
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .pick p{
+    font-size: 16px;
+    color: var(--ink-soft);
+    margin-bottom: 16px;
+  }
+  .pick-cta{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: var(--forest);
+    color: var(--card);
+    font-size: 14px;
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+  .pick-cta:hover{ background: var(--forest-deep); }
+  .pick-note{
+    display: block;
+    margin-top: 10px;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    opacity: 0.8;
+  }
+
+  .conclusion{
+    border-top: 1px solid var(--hairline);
+    padding-top: 32px;
+    margin-top: 12px;
+  }
+
+  /* ---------- related / footer ---------- */
+  .related{
+    background: var(--card);
+    border-top: 1px solid var(--hairline);
+    padding: 60px 0 70px;
+    margin-top: 60px;
+  }
+  .related h2{ font-size: 22px; margin-bottom: 24px; }
+  .related-list{ border-top: 1px solid var(--hairline); }
+  .related-item{
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--hairline);
+    transition: opacity 0.2s ease;
+  }
+  .related-item:hover{ opacity: 0.7; }
+  .related-tag{ font-size: 13px; color: var(--wine); }
+  .related-title{ font-family: 'Fraunces', serif; font-size: 18px; color: var(--ink); }
+  .related-read{ font-size: 13.5px; color: var(--forest); white-space: nowrap; }
+  @media (max-width: 600px){
+    .related-item{ grid-template-columns: 1fr; gap: 4px; }
+  }
+
+  footer{ padding: 32px 0 40px; }
+  .footer-inner{
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    font-size: 13.5px; color: var(--ink-soft);
+  }
+  .footer-inner a{ color: var(--ink-soft); }
+  .footer-inner a:hover{ color: var(--forest); }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="nav">
+      <a class="logo" href="index.html">The Accessory Edit</a>
+      <a class="back-link" href="index.html#journal">← Back to journal</a>
+    </div>
+  </header>
+
+  <div class="post-head">
+    <div class="prose-wrap">
+      <div class="post-meta">
+        <span>Decor</span>
+        <span class="dot">·</span>
+        <span class="neutral">5 min read</span>
+        <span class="dot">·</span>
+        <span class="neutral">Updated Aug 2026</span>
+      </div>
+      <h1>A slow case for buying fewer, better vases</h1>
+      <p class="post-dek">What changes when you stop collecting and start choosing — plus the two we actually kept.</p>
+    </div>
+  </div>
+
+  <div class="post-hero-art">
+    <div class="weave" aria-hidden="true">
+      <div class="weave-strip" style="top: 12%;"></div>
+      <div class="weave-strip forest" style="top: 40%; height: 44px;"></div>
+      <div class="weave-strip wine" style="top: 70%; height: 22px;"></div>
+    </div>
+  </div>
+
+  <div class="disclosure-banner">
+    <div class="disclosure-box">
+      This post contains Amazon affiliate links. As an Amazon Associate, The Accessory Edit earns from qualifying purchases — at no extra cost to you. We only recommend things we've actually used. Full details in our <a href="privacy-policy.html">privacy policy</a>.
+    </div>
+  </div>
+
+  <article>
+    <div class="prose-wrap">
+      <p>There was a stretch where every trip to a home store meant coming back with another vase — cheap enough to not think twice about, different enough from the last one to feel like a new idea. The shelf filled up fast. What didn't happen was any of them becoming the one we reached for. They just sat there, interchangeable, none of them quite right.</p>
+      <p>Eventually we boxed most of it up and started over with a different rule: buy one at a time, live with it for a season, and only replace it if it's actually earned a reason to go. Two years later, we're down to two vases. Both get used weekly. Here's what made the cut, and why fewer turned out to matter more than which ones.</p>
+
+      <h2>1. The everyday shape</h2>
+    </div>
+
+    <div class="prose-wrap pick">
+      <div class="pick-eyebrow">Best for weekly flowers</div>
+      <h3>Hand-Thrown Ceramic Vase, Speckled Stoneware</h3>
+      <p>This is the one that gets used every single week, which says more than any material or finish could. The wide mouth means it doesn't fight you when you're arranging whatever's on hand — grocery store tulips, garden cuttings, a single stem on a slow week. The weighted base means it doesn't tip when the stems lean. Nothing about it demands attention, which is exactly why it's still on the shelf.</p>
+      <a class="pick-cta" href="#">Shop on Amazon</a>
+      <span class="pick-note">Placeholder link — swap in your tagged Amazon URL for this product.</span>
+    </div>
+
+    <div class="prose-wrap pick">
+      <div class="pick-eyebrow">Best for a single statement piece</div>
+      <h3>Tall Ribbed Glass Vase</h3>
+      <p>The counterpoint to the everyday one. This is for the occasional big, single-stem branch or a bunch of dried pampas grass that needs height and doesn't need arranging so much as placing. The ribbed glass catches light in a way that photographs don't quite capture, and at this height, it does more for a room empty than most decor does full.</p>
+      <a class="pick-cta" href="#">Shop on Amazon</a>
+      <span class="pick-note">Placeholder link — swap in your tagged Amazon URL for this product.</span>
+    </div>
+
+    <div class="prose-wrap conclusion">
+      <h2>What we let go of</h2>
+      <p>Nearly everything under a certain price point, honestly. Not because cheap vases can't be good — but because we noticed a pattern: the ones we stopped using were always the ones we'd bought without a specific reason, just because they were inexpensive and available. The two that stayed both got bought to solve an actual, specific problem on the shelf.</p>
+      <p>If there's a rule in this, it's that one: buy for a gap you can name, not for a display. Everything else tends to become clutter with better lighting.</p>
+    </div>
+  </article>
+
+  <div class="related">
+    <div class="wrap">
+      <h2>More from the journal</h2>
+      <div class="related-list">
+        <a class="related-item" href="blog-drawer-organizers.html">
+          <span class="related-tag">Storage</span>
+          <span class="related-title">The drawer organizers that actually stay put</span>
+          <span class="related-read">Read the piece</span>
+        </a>
+        <a class="related-item" href="blog-one-bag-four-seasons.html">
+          <span class="related-tag">Carry</span>
+          <span class="related-title">One bag, four seasons: a practical test</span>
+          <span class="related-read">Read the piece</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© 2026 The Accessory Edit</span>
+      <a href="index.html">Back to home</a>
+    </div>
+  </footer>
+
+</body>
+</html>
