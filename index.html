@@ -375,6 +375,11 @@
   .all-posts-link{ margin: 26px 0 0; font-size: 15px; }
   .all-posts-link a{ color: var(--forest); border-bottom: 1px solid var(--forest); padding-bottom: 1px; }
   .all-posts-link a:hover{ color: var(--forest-deep); border-bottom-width: 2px; }
+  .home-search{ display: flex; gap: 0; margin-top: 18px; max-width: 460px; border: 1px solid var(--hairline); background: var(--card); }
+  .home-search input{ flex: 1; min-width: 0; border: none; background: transparent; font: inherit; font-size: 15.5px; padding: 13px 14px; color: var(--ink); outline: none; }
+  .home-search input:focus-visible{ outline: 2px solid var(--forest); outline-offset: -2px; }
+  .home-search button{ border: none; background: var(--forest); color: var(--card); font: inherit; font-size: 15px; padding: 0 20px; cursor: pointer; }
+  .home-search button:hover{ background: var(--forest-deep); }
 </style>
 </head>
 <body>
@@ -398,6 +403,10 @@
         <h1>Small things,<br>arranged with care.</h1>
         <p>A running edit of home and personal accessories worth making room for — the pieces that quietly improve a space or an outfit, chosen for how they hold up, not just how they photograph.</p>
         <a class="hero-cta" href="#categories">Browse the edit</a>
+        <form class="home-search" action="all-posts.html" method="get" role="search">
+          <input type="search" name="q" placeholder="Search products, like “lamp” or “vase”" aria-label="Search products and posts" autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
       </div>
       <div class="weave" aria-hidden="true">
         <div class="weave-strip" style="top: 8%;"></div>
@@ -526,7 +535,7 @@
           <span class="journal-read">Read the piece</span>
         </a>
       </div>
-      <p class="all-posts-link"><a href="all-posts.html">View all posts</a></p>
+      <p class="all-posts-link"><a href="all-posts.html">Search all posts and products</a></p>
     </div>
   </section>
 
