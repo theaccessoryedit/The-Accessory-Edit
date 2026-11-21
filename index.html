@@ -66,7 +66,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
   .logo{
     font-family: 'Fraunces', serif;
@@ -380,6 +381,25 @@
   .home-search input:focus-visible{ outline: 2px solid var(--forest); outline-offset: -2px; }
   .home-search button{ border: none; background: var(--forest); color: var(--card); font: inherit; font-size: 15px; padding: 0 20px; cursor: pointer; }
   .home-search button:hover{ background: var(--forest-deep); }
+
+  /* ---------- hero artwork, built from the brand logo palette ---------- */
+  :root{ --blush:#F3E7DE; --terra:#B96A4E; --cocoa:#5C4033; }
+  .hero-art{ position: relative; width: 100%; max-width: 470px; margin-left: auto; aspect-ratio: 5 / 6; }
+  .arch-bg{ position: absolute; left: 8%; top: 0; width: 80%; height: 90%; background: var(--blush); border-radius: 999px 999px 10px 10px; }
+  .arch-ring{ position: absolute; left: 12%; top: 3%; width: 72%; height: 84%; border: 1.5px solid var(--terra); border-radius: 999px 999px 8px 8px; opacity: .6; }
+  .arch{ position: absolute; left: 15%; top: 6%; width: 66%; height: 78%; border-radius: 999px 999px 6px 6px; overflow: hidden; background: var(--card); display: block; }
+  .arch img{ width: 100%; height: 100%; object-fit: cover; object-position: 55% 50%; display: block; transition: transform .7s ease; }
+  .arch:hover img{ transform: scale(1.05); }
+  .chip{ position: absolute; display: block; overflow: hidden; background: var(--card); border: 6px solid var(--bg); box-shadow: 0 12px 30px rgba(92,64,51,.16); transition: transform .3s ease; }
+  .chip:hover{ transform: translateY(-4px); }
+  .chip img{ width: 100%; height: 100%; display: block; object-fit: contain; }
+  .chip-a{ right: 1%; bottom: 7%; width: 35%; aspect-ratio: 1; border-radius: 14px; }
+  .chip-a img{ object-fit: cover; }
+  .chip-b{ right: 0; top: 9%; width: 25%; aspect-ratio: 1; border-radius: 50%; }
+  .chip-b img{ padding: 8%; }
+  .mark{ position: absolute; left: 0; bottom: 3%; width: 36%; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 16px 36px rgba(92,64,51,.2); }
+  .mark img{ width: 100%; height: 100%; display: block; border-radius: 50%; }
+  @media (max-width: 860px){ .hero-art{ max-width: 380px; margin: 0 auto; } }
 </style>
 </head>
 <body>
@@ -401,28 +421,33 @@
     <div class="wrap hero-grid">
       <div>
         <h1>Small things,<br>arranged with care.</h1>
-        <p>A running edit of home and personal accessories worth making room for — the pieces that quietly improve a space or an outfit, chosen for how they hold up, not just how they photograph.</p>
+        <p>A running edit of home and personal accessories worth making room for: pieces that quietly improve a space or an outfit, with the details worth checking before you buy.</p>
         <a class="hero-cta" href="#categories">Browse the edit</a>
         <form class="home-search" action="all-posts.html" method="get" role="search">
           <input type="search" name="q" placeholder="Search products, like “lamp” or “vase”" aria-label="Search products and posts" autocomplete="off">
           <button type="submit">Search</button>
         </form>
       </div>
-      <div class="weave" aria-hidden="true">
-        <div class="weave-strip" style="top: 8%;"></div>
-        <div class="weave-strip forest" style="top: 26%; height: 46px;"></div>
-        <div class="weave-strip" style="top: 50%;"></div>
-        <div class="weave-strip wine" style="top: 68%; height: 24px;"></div>
-        <div class="weave-strip" style="top: 86%;"></div>
-        <div class="weave-circle" style="width:120px; height:120px; right:-30px; top:-20px;"></div>
-        <div class="weave-circle" style="width:70px; height:70px; left:20px; bottom:40px;"></div>
+      <div class="hero-art">
+        <div class="arch-bg" aria-hidden="true"></div>
+        <div class="arch-ring" aria-hidden="true"></div>
+        <a class="arch" href="blog-aesthetic-lighting-edit.html#furniture" aria-label="See the console table and furniture picks">
+          <img src="img-plank-beam-console.jpg" alt="A walnut console table styled with a mirror, lamps and flowers" fetchpriority="high" onerror="this.style.display='none'">
+        </a>
+        <a class="chip chip-a" href="blog-fewer-better-vases.html" aria-label="See our favorite vase picks">
+          <img src="img-lb2-brown-vase.jpg" alt="A weathered brown ceramic vase" loading="lazy" onerror="this.parentNode.style.display='none'">
+        </a>
+        <a class="chip chip-b" href="blog-cozy-layers-bedroom.html" aria-label="See the cozy bedroom picks">
+          <img src="45%20-%20Gold%20Arc%20Floor%20Lamp%20with%20Remote.png" alt="A gold arc floor lamp" loading="lazy" onerror="this.parentNode.style.display='none'">
+        </a>
+        <div class="mark"><img src="brand-logo.png" alt="The Accessory Edit logo" width="320" height="320"></div>
       </div>
     </div>
   </section>
 
   <div class="statement">
     <div class="wrap">
-      <p>We test things in real homes, not showrooms — so what lands here is what earned its shelf space.</p>
+      <p>Every pick here is chosen for its design and usefulness, and we point out what to check before you buy.</p>
     </div>
   </div>
 
@@ -556,7 +581,7 @@
     <div class="wrap" style="display:grid; grid-template-columns: 1fr 1fr; gap: 64px;">
       <div>
         <h2 style="font-size: clamp(26px, 3vw, 34px); margin-bottom: 14px;">About The Accessory Edit</h2>
-        <p>The Accessory Edit started as a running list of things worth buying twice. It's grown into a small, careful edit of home and personal accessories — tested, lived with, and only written up when they earn it.</p>
+        <p>The Accessory Edit started as a running list of home and personal accessories worth a closer look. It has grown into a careful edit of products we find well designed and useful, with honest notes on what to check before you buy.</p>
       </div>
       <div class="about-quote">
         We're not chasing trends here. We're chasing the things you stop noticing because they just work.
