@@ -393,13 +393,34 @@
   .chip{ position: absolute; display: block; overflow: hidden; background: var(--card); border: 6px solid var(--bg); box-shadow: 0 12px 30px rgba(92,64,51,.16); transition: transform .3s ease; }
   .chip:hover{ transform: translateY(-4px); }
   .chip img{ width: 100%; height: 100%; display: block; object-fit: contain; }
-  .chip-a{ right: 1%; bottom: 7%; width: 35%; aspect-ratio: 1; border-radius: 14px; }
+  .chip-a{ right: -3%; bottom: 0; width: 35%; aspect-ratio: 1; border-radius: 14px; }
   .chip-a img{ object-fit: cover; }
   .chip-b{ right: 0; top: 9%; width: 25%; aspect-ratio: 1; border-radius: 50%; }
   .chip-b img{ padding: 8%; }
   .mark{ position: absolute; left: 0; bottom: 3%; width: 36%; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 16px 36px rgba(92,64,51,.2); }
   .mark img{ width: 100%; height: 100%; display: block; border-radius: 50%; }
   @media (max-width: 860px){ .hero-art{ max-width: 380px; margin: 0 auto; } }
+
+  /* ---------- illustrated hero + category cards ---------- */
+  .arch svg{ width: 100%; height: 100%; display: block; transition: transform .7s ease; }
+  .arch:hover svg{ transform: scale(1.05); }
+  .chip svg{ width: 100%; height: 100%; display: block; }
+  .chip-a, .chip-b{ background: var(--card); }
+  .cats{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cat{ display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--hairline); overflow: hidden; color: inherit; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
+  a.cat:hover{ transform: translateY(-4px); box-shadow: 0 16px 34px rgba(92,64,51,.13); }
+  .cat-art{ aspect-ratio: 360 / 220; overflow: hidden; }
+  .cat-art svg{ width: 100%; height: 100%; display: block; transition: transform .5s ease; }
+  a.cat:hover .cat-art svg{ transform: scale(1.05); }
+  .cat.is-soon .cat-art{ opacity: .6; filter: saturate(.6); }
+  .cat-body{ padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+  .cat-body h3{ font-size: 22px; margin: 0 0 8px; }
+  .cat-body p{ margin: 0 0 18px; font-size: 15px; color: var(--ink-soft); flex: 1; }
+  .cat-go{ align-self: flex-start; font-size: 14px; color: var(--forest); border-bottom: 1px solid var(--forest); padding-bottom: 1px; }
+  a.cat:hover .cat-go{ border-bottom-width: 2px; }
+  .cat-go.soon{ border: none; padding: 4px 11px; border-radius: 999px; background: var(--blush); color: var(--terra); font-size: 12.5px; letter-spacing: .02em; }
+  @media (max-width: 960px){ .cats{ grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px){ .cats{ grid-template-columns: 1fr; gap: 18px; } }
 </style>
 </head>
 <body>
@@ -431,15 +452,53 @@
       <div class="hero-art">
         <div class="arch-bg" aria-hidden="true"></div>
         <div class="arch-ring" aria-hidden="true"></div>
-        <a class="arch" href="blog-aesthetic-lighting-edit.html#furniture" aria-label="See the console table and furniture picks">
-          <img src="img-plank-beam-console.jpg" alt="A walnut console table styled with a mirror, lamps and flowers" fetchpriority="high" onerror="this.style.display='none'">
+        <a class="arch" href="blog-aesthetic-lighting-edit.html#furniture" aria-label="See the furniture and lighting picks">
+          <svg viewBox="0 0 320 450" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration of a styled console table with a vase of pampas grass, a table lamp and a round mirror">
+            <defs>
+              <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0DACB"/><stop offset="1" stop-color="#F8EEE6"/></linearGradient>
+              <linearGradient id="mirG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E9DDD3"/></linearGradient>
+              <radialGradient id="glowG" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF4DC" stop-opacity=".95"/><stop offset="1" stop-color="#FFF4DC" stop-opacity="0"/></radialGradient>
+            </defs>
+            <rect width="320" height="450" fill="url(#wallG)"/>
+            <circle cx="104" cy="128" r="92" fill="#FBF3EC" opacity=".7"/>
+            <rect y="372" width="320" height="78" fill="#E4CEBB"/>
+            <rect y="372" width="320" height="3" fill="#D5BAA5"/>
+            <ellipse cx="160" cy="416" rx="136" ry="20" fill="#D9A68C" opacity=".7"/>
+            <circle cx="214" cy="122" r="58" fill="#B96A4E"/>
+            <circle cx="214" cy="122" r="52" fill="url(#mirG)"/>
+            <path d="M180 106 A44 44 0 0 1 224 80" stroke="#fff" stroke-width="6" stroke-linecap="round" fill="none" opacity=".85"/>
+            <circle cx="214" cy="222" r="58" fill="url(#glowG)"/>
+            <rect x="124" y="330" width="74" height="46" rx="17" fill="#FBF9F4"/>
+            <path d="M124 346 Q161 340 198 346" stroke="#EADFD6" stroke-width="3" fill="none"/>
+            <path d="M124 362 Q161 356 198 362" stroke="#EADFD6" stroke-width="3" fill="none"/>
+            <rect x="62" y="302" width="198" height="12" rx="3" fill="#5C4033"/>
+            <rect x="70" y="314" width="182" height="12" fill="#704E3F"/>
+            <rect x="72" y="326" width="9" height="48" fill="#5C4033"/>
+            <rect x="241" y="326" width="9" height="48" fill="#5C4033"/>
+            <path d="M104 246 Q95 208 86 170" stroke="#A98A70" stroke-width="2" fill="none"/>
+            <path d="M104 246 Q106 198 113 148" stroke="#A98A70" stroke-width="2" fill="none"/>
+            <path d="M104 246 Q118 214 131 184" stroke="#A98A70" stroke-width="2" fill="none"/>
+            <ellipse cx="85" cy="156" rx="8" ry="22" transform="rotate(-8 85 156)" fill="#EBD6C0"/>
+            <ellipse cx="114" cy="134" rx="9" ry="27" transform="rotate(5 114 134)" fill="#F4E5D5"/>
+            <ellipse cx="132" cy="170" rx="7" ry="20" transform="rotate(18 132 170)" fill="#E2C8AE"/>
+            <path d="M92 302 C80 284 84 262 98 254 L98 246 L110 246 L110 254 C124 262 128 284 116 302 Z" fill="#B96A4E"/>
+            <path d="M92 276 C98 281 110 281 118 276" stroke="#9E563B" stroke-width="2" fill="none"/>
+            <rect x="146" y="292" width="36" height="5" fill="#8FA38A"/>
+            <rect x="150" y="287" width="28" height="5" fill="#E7C9B4"/>
+            <circle cx="164" cy="279" r="7" fill="#B96A4E"/>
+            <ellipse cx="214" cy="278" rx="22" ry="24" fill="#5C4033"/>
+            <rect x="211" y="236" width="6" height="22" fill="#5C4033"/>
+            <path d="M188 238 L240 238 L228 192 L200 192 Z" fill="#FBF3EA"/>
+            <path d="M188 238 L240 238" stroke="#E5D3BF" stroke-width="3"/>
+            <ellipse cx="280" cy="392" rx="22" ry="5" fill="#CDB29C" opacity=".6"/>
+            <ellipse cx="271" cy="322" rx="9" ry="29" transform="rotate(-20 271 322)" fill="#8FA38A"/>
+            <ellipse cx="291" cy="318" rx="9" ry="31" transform="rotate(18 291 318)" fill="#A3B59A"/>
+            <ellipse cx="281" cy="308" rx="8" ry="31" fill="#7C9279"/>
+            <path d="M265 350 H297 L293 392 H269 Z" fill="#FBF9F4"/>
+          </svg>
         </a>
-        <a class="chip chip-a" href="blog-fewer-better-vases.html" aria-label="See our favorite vase picks">
-          <img src="img-lb2-brown-vase.jpg" alt="A weathered brown ceramic vase" loading="lazy" onerror="this.parentNode.style.display='none'">
-        </a>
-        <a class="chip chip-b" href="blog-cozy-layers-bedroom.html" aria-label="See the cozy bedroom picks">
-          <img src="45%20-%20Gold%20Arc%20Floor%20Lamp%20with%20Remote.png" alt="A gold arc floor lamp" loading="lazy" onerror="this.parentNode.style.display='none'">
-        </a>
+        <a class="chip chip-a" href="blog-fewer-better-vases.html" aria-label="See our vase picks"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#F3E7DE"/><path d="M50 84 C36 82 36 62 45 54 L45 46 L55 46 L55 54 C64 62 64 82 50 84Z" fill="#B96A4E"/><path d="M50 46 Q44 30 38 20" stroke="#8FA38A" stroke-width="2.5" fill="none"/><path d="M50 46 Q56 28 64 18" stroke="#8FA38A" stroke-width="2.5" fill="none"/><ellipse cx="37" cy="19" rx="5" ry="10" transform="rotate(-20 37 19)" fill="#A3B59A"/><ellipse cx="65" cy="17" rx="5" ry="10" transform="rotate(22 65 17)" fill="#8FA38A"/></svg></a>
+        <a class="chip chip-b" href="blog-cozy-layers-bedroom.html" aria-label="See the cozy bedroom picks"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" fill="#FBF3EA"/><ellipse cx="30" cy="86" rx="15" ry="3.5" fill="#5C4033"/><path d="M30 86 V34 Q30 14 56 18" stroke="#5C4033" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M47 18 H67 L63 36 H51 Z" fill="#C9A24D"/><circle cx="57" cy="42" r="9" fill="#FFE9B0" opacity=".7"/></svg></a>
         <div class="mark"><img src="brand-logo.png" alt="The Accessory Edit logo" width="320" height="320"></div>
       </div>
     </div>
@@ -457,48 +516,58 @@
         <h2>Where to start</h2>
         <span class="count">6 categories</span>
       </div>
-      <div class="cat-grid">
-        <a class="cat-card cat-1" href="blog-aesthetic-lighting-edit.html">
-          <div>
-            <h3>Home Decor</h3>
-            <p>Textiles, ceramics, and small objects that set the tone of a room without shouting about it.</p>
-          </div>
-          <span class="go">Explore the edit</span>
+      <div class="cats">
+        <a class="cat" href="blog-aesthetic-lighting-edit.html">
+          <div class="cat-art"><svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="360" height="220" fill="#F3E7DE"/>
+  <path d="M214 126 V72 A44 44 0 0 1 302 72 V126 Z" fill="#FBF9F4"/><circle cx="258" cy="84" r="16" fill="#B96A4E"/><path d="M214 126 V112 Q236 96 258 108 T302 104 V126Z" fill="#8FA38A"/>
+  <ellipse cx="116" cy="158" rx="64" ry="9" fill="#5C4033"/><rect x="113" y="166" width="6" height="46" fill="#5C4033"/><ellipse cx="116" cy="212" rx="26" ry="5" fill="#5C4033"/>
+  <path d="M116 150 Q108 112 98 74" stroke="#A98A70" stroke-width="2.2" fill="none"/><path d="M116 150 Q118 106 126 62" stroke="#A98A70" stroke-width="2.2" fill="none"/><path d="M116 150 Q132 120 146 90" stroke="#A98A70" stroke-width="2.2" fill="none"/>
+  <ellipse cx="97" cy="62" rx="8" ry="22" transform="rotate(-8 97 62)" fill="#EBD6C0"/><ellipse cx="127" cy="46" rx="9" ry="26" transform="rotate(5 127 46)" fill="#FBF3EA"/><ellipse cx="147" cy="78" rx="7" ry="20" transform="rotate(18 147 78)" fill="#E2C8AE"/>
+  <path d="M103 158 C92 142 96 126 108 120 L108 114 L124 114 L124 120 C136 126 140 142 129 158 Z" fill="#B96A4E"/></svg></div>
+          <div class="cat-body"><h3>Home Decor</h3><p>Lamps, vases, mirrors, and small objects that set the tone of a room without shouting about it.</p><span class="cat-go">Explore the edit</span></div>
         </a>
-        <a class="cat-card cat-2" href="blog-kitchen-pantry-storage.html">
-          <div>
-            <h3>Kitchen &amp; Dining</h3>
-            <p>Tools and tableware built for daily use.</p>
-          </div>
-          <span class="go">Explore the edit</span>
+        <a class="cat" href="blog-kitchen-upgrades.html">
+          <div class="cat-art"><svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="360" height="220" fill="#DCE4D6"/>
+  <rect x="30" y="150" width="300" height="9" rx="2" fill="#5C4033"/>
+  <path d="M58 112 H146 C146 144 126 150 102 150 C78 150 58 144 58 112Z" fill="#FBF9F4"/><rect x="56" y="106" width="92" height="8" rx="3" fill="#B96A4E"/>
+  <path d="M180 150 C170 140 170 108 182 92 L182 84 H208 L208 92 C222 108 222 140 210 150Z" fill="#B96A4E"/><path d="M208 100 C230 98 230 126 208 128" stroke="#B96A4E" stroke-width="7" fill="none"/>
+  <rect x="252" y="124" width="46" height="26" rx="5" fill="#FBF9F4"/><rect x="258" y="98" width="46" height="26" rx="5" fill="#E9C9B6"/>
+  <rect x="318" y="60" width="7" height="90" rx="3" transform="rotate(14 318 105)" fill="#8B5E45"/><ellipse cx="311" cy="62" rx="11" ry="16" transform="rotate(14 311 62)" fill="#8B5E45"/></svg></div>
+          <div class="cat-body"><h3>Kitchen &amp; Dining</h3><p>Cookware, containers, and serving pieces built for daily use.</p><span class="cat-go">Explore the edit</span></div>
         </a>
-        <a class="cat-card cat-3" href="blog-small-space-storage.html">
-          <div>
-            <h3>Storage &amp; Order</h3>
-            <p>Systems for the drawers, entryways, and closets that never quite behave.</p>
-          </div>
-          <span class="go">Explore the edit</span>
+        <a class="cat" href="blog-small-space-storage.html">
+          <div class="cat-art"><svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="360" height="220" fill="#EBDDCB"/>
+  <rect x="86" y="86" width="188" height="108" rx="10" fill="#FBF9F4"/><rect x="86" y="86" width="188" height="12" rx="6" fill="#5C4033"/>
+  <rect x="100" y="106" width="76" height="78" rx="5" fill="#F0E6DA"/><rect x="184" y="106" width="76" height="78" rx="5" fill="#F0E6DA"/>
+  <circle cx="162" cy="146" r="4" fill="#B96A4E"/><circle cx="198" cy="146" r="4" fill="#B96A4E"/>
+  <rect x="104" y="194" width="8" height="16" fill="#5C4033"/><rect x="248" y="194" width="8" height="16" fill="#5C4033"/>
+  <path d="M120 86 C120 56 168 56 168 86Z" fill="#B96A4E"/><path d="M128 76 H160 M126 68 H162" stroke="#9E563B" stroke-width="2"/>
+  <rect x="196" y="62" width="60" height="9" rx="3" fill="#8FA38A"/><rect x="200" y="53" width="52" height="9" rx="3" fill="#E7C9B4"/><rect x="198" y="44" width="56" height="9" rx="3" fill="#FBF9F4"/></svg></div>
+          <div class="cat-body"><h3>Storage &amp; Order</h3><p>Systems for the drawers, entryways, and closets that never quite behave.</p><span class="cat-go">Explore the edit</span></div>
         </a>
-        <div class="cat-card cat-4 is-soon">
-          <div>
-            <h3>Bags &amp; Carry</h3>
-            <p>Everyday carry with good bones.</p>
-          </div>
-          <span class="go">Coming soon</span>
+        <div class="cat is-soon">
+          <div class="cat-art"><svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="360" height="220" fill="#F0D6C9"/>
+  <path d="M138 84 C138 30 222 30 222 84" stroke="#5C4033" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M118 84 H242 L252 192 Q252 200 244 200 H116 Q108 200 108 192 Z" fill="#5C4033"/><rect x="108" y="118" width="144" height="7" fill="#B96A4E"/>
+  <rect x="236" y="138" width="86" height="58" rx="10" fill="#FBF9F4"/><path d="M236 156 H322" stroke="#B96A4E" stroke-width="6"/><circle cx="279" cy="156" r="6" fill="#C9A24D"/>
+  <ellipse cx="180" cy="206" rx="104" ry="8" fill="#5C4033" opacity=".12"/></svg></div>
+          <div class="cat-body"><h3>Bags &amp; Carry</h3><p>Everyday carry with good bones.</p><span class="cat-go soon">Coming soon</span></div>
         </div>
-        <div class="cat-card cat-5 is-soon">
-          <div>
-            <h3>Jewelry &amp; Small Goods</h3>
-            <p>Personal accessories worth keeping.</p>
-          </div>
-          <span class="go">Coming soon</span>
+        <div class="cat is-soon">
+          <div class="cat-art"><svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="360" height="220" fill="#F1E6CB"/>
+  <ellipse cx="180" cy="172" rx="108" ry="26" fill="#5C4033"/><ellipse cx="180" cy="168" rx="96" ry="20" fill="#7A5645"/>
+  <circle cx="142" cy="118" r="28" fill="none" stroke="#B96A4E" stroke-width="9"/><circle cx="196" cy="100" r="38" fill="none" stroke="#C9A24D" stroke-width="9"/>
+  <circle cx="236" cy="142" r="20" fill="none" stroke="#FBF9F4" stroke-width="8"/><circle cx="108" cy="152" r="8" fill="#FBF9F4"/><circle cx="262" cy="160" r="8" fill="#C9A24D"/></svg></div>
+          <div class="cat-body"><h3>Jewelry &amp; Small Goods</h3><p>Personal accessories worth keeping.</p><span class="cat-go soon">Coming soon</span></div>
         </div>
-        <a class="cat-card cat-6" href="blog-aesthetic-lighting-edit.html#bath">
-          <div>
-            <h3>Bath &amp; Self-Care</h3>
-            <p>The quiet rituals corner.</p>
-          </div>
-          <span class="go">Explore</span>
+        <a class="cat" href="blog-aesthetic-lighting-edit.html#bath">
+          <div class="cat-art"><svg viewBox="0 0 360 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="360" height="220" fill="#D9E5E0"/>
+  <rect x="40" y="176" width="280" height="10" rx="3" fill="#5C4033"/>
+  <rect x="62" y="100" width="64" height="76" rx="10" fill="#FBF9F4"/><rect x="62" y="100" width="64" height="12" rx="6" fill="#B96A4E"/><path d="M94 100 V86" stroke="#5C4033" stroke-width="3"/><path d="M94 84 C86 74 92 64 94 58 C96 64 102 74 94 84Z" fill="#E9A76A"/>
+  <rect x="158" y="136" width="108" height="40" rx="20" fill="#FBF9F4"/><circle cx="246" cy="156" r="20" fill="#F0E6DA"/><path d="M246 156 m-10 0 a10 10 0 1 1 10 10" stroke="#B96A4E" stroke-width="3" fill="none"/>
+  <rect x="172" y="106" width="82" height="30" rx="8" fill="#E9C9B6"/><rect x="184" y="84" width="58" height="22" rx="7" fill="#C9A24D" opacity=".85"/>
+  <rect x="284" y="104" width="30" height="72" rx="8" fill="#8FA38A"/><rect x="292" y="92" width="14" height="14" rx="3" fill="#5C4033"/></svg></div>
+          <div class="cat-body"><h3>Bath &amp; Self-Care</h3><p>Candles, lamps, and mats for the quiet rituals corner.</p><span class="cat-go">Explore the edit</span></div>
         </a>
       </div>
     </div>
